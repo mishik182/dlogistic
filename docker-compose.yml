@@ -2,16 +2,18 @@ version: '3'
 
 services:
   db:
-    image: mysql/mysql-server:latest
-    container_name: mysql_server
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=djangocrm
-      - MYSQL_ROOT_HOST=%
+    image: postgres
     ports:
-      - 3306:3306
+      - 5432:5432
+    environment:
+      POSTGRES_DB: dlogistic
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+
+  pgadmin:
+    image: chorss/docker-pgadmin4
+    ports:
+      - 5050:5050
   web:
     build: .
     container_name: django_crm

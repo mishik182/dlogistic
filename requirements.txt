@@ -1,5 +1,5 @@
 django
-mysqlclient
+psycopg2
 djangorestframework
 django-cacheops
 django-rest-auth
