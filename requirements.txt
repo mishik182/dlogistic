@@ -1,0 +1,7 @@
+django
+mysqlclient
+djangorestframework
+django-cacheops
+django-rest-auth
+channels
+request

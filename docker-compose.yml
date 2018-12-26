@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  db:
+    image: mysql/mysql-server:latest
+    container_name: mysql_server
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=djangocrm
+      - MYSQL_ROOT_HOST=%
+    ports:
+      - 3306:3306
+  web:
+    build: .
+    container_name: django_crm
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - /home/mykityuk/work/PycharmProjects/dlogistic:/code
+    ports:
+      - "8000:8000"
+
